@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+#define  ll long long
+int main() 
+{
+    int t;
+    scanf("%d",&t);
+    while(t--)
+    {
+        ll x,y,count=0;
+        scanf("%lld%lld",&x,&y);
+        ll f1=1,f2=2,f3=1;
+        if(f1>x && f1<y)
+            count++;
+        if(f2>x && f2<y)
+            count++;
+        while(f3<y)
+        {
+            f3=f1+f2;
+            if(f3>x && f3<y)
+                count++;
+            f1=f2;
+            f2=f3;
+        }
+        printf("%lld\n",count);
+    }
+    return 0;
+}
